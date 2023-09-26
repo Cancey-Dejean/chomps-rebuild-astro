@@ -1,0 +1,28 @@
+---
+import Container from './Container.astro'
+interface Props {
+  text: string
+  href?: string
+}
+
+const { href = '#', text = 'Place Announcement here' } = Astro.props
+---
+
+<div
+  class="bg-white py-[13px] text-center text-[1.4rem] leading-[1] text-black"
+>
+  <Container>
+    {
+      href ? (
+        <a
+          href={href}
+          class="underline transition-all duration-200 ease-announcement hover:opacity-60"
+        >
+          {text}
+        </a>
+      ) : (
+        <p>{text}</p>
+      )
+    }
+  </Container>
+</div>

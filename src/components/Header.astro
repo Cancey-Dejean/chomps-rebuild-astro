@@ -1,0 +1,121 @@
+---
+import AnnouncementBar from './AnnouncementBar.astro'
+import ChevronDown from './ChevronDown.astro'
+import ChompsLogo from './ChompsLogo.astro'
+import Container from './Container.astro'
+
+interface Props {
+  showAnnouncementBar?: boolean
+}
+
+const { showAnnouncementBar = false } = Astro.props
+
+const mainMenu = [
+  {
+    label: 'Shop',
+    url: '/',
+    subMenu: true
+  },
+  {
+    label: 'Learn',
+    url: '/',
+    subMenu: true
+  },
+  {
+    label: 'Subscribe & Save',
+    url: '/',
+    subMenu: false
+  }
+]
+
+const mainSettingsMenu = [
+  {
+    label: 'Store Locator',
+    url: '/'
+  },
+  {
+    label: 'Rewards',
+    url: '/'
+  }
+]
+---
+
+<header class="bg-primary text-white">
+  {
+    showAnnouncementBar && (
+      <AnnouncementBar text="SUBSCRIBE TO SAVE 10% ON EVERY ORDER! 💰" />
+    )
+  }
+
+  <nav
+    class:list={[
+      'relative flex min-h-[75px] py-[11px]',
+      '[&_ul]:flex [&_ul]:items-center'
+    ]}
+  >
+    <Container className="flex items-center justify-between gap-4">
+      <div
+        class="logo absolute left-1/2 top-1/2 w-full max-w-[219px] -translate-x-1/2 -translate-y-1/2 text-center"
+      >
+        <a href="/" class="flex justify-center">
+          <ChompsLogo />
+        </a>
+      </div>
+
+      <div class="main-menu">
+        <ul>
+          {
+            mainMenu.map((item) => (
+              <li>
+                {item.subMenu ? (
+                  <button
+                    class="menu-link"
+                    type="button"
+                    aria-label={item.label}
+                  >
+                    {item.label}{' '}
+                    <span>
+                      <ChevronDown />
+                    </span>
+                  </button>
+                ) : (
+                  <a href={item.url} class="menu-link">
+                    {item.label}
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex items-center gap-15">
+        <ul>
+          {
+            mainSettingsMenu.map((item) => (
+              <li>
+                <a class="menu-link" href={item.url}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="gap-15">
+          <li>
+            <button>Icon</button>
+          </li>
+          <li>
+            <button>Icon</button>
+          </li>
+        </ul>
+      </div>
+    </Container>
+  </nav>
+</header>
+
+<style>
+  .menu-link {
+    @apply flex items-center gap-2 px-[15px] py-[7.5px] font-heading text-[2rem];
+  }
+</style>
