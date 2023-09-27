@@ -10,9 +10,10 @@ module.exports = {
         secondary: ['Colby', 'helvetica', 'arial', 'sans-serif']
       },
       colors: {
-        primary: '#d02c2f',
-        bg: '#FEF5F0',
-        'baby-blue': '#c9ebf7'
+        primary: 'var(--color-primary)',
+        bg: 'var(--color-bg)',
+        'sky-blue': 'var(--color-sky-blue)'
+
         // primary: {
         //   50: '#F2F2F2',
         //   100: '#E0E0E0',
@@ -34,25 +35,20 @@ module.exports = {
       },
       screens: {
         xs: '374px'
+      },
+      fontSize: {
+        6: ['6rem'],
+        11: ['11rem'],
+        13: ['13rem']
+        // subtitle: [
+        //   '2.4rem',
+        //   {
+        //     lineHeight: '2.8rem',
+        //     letterSpacing: '0rem',
+        //     fontWeight: '400'
+        //   }
+        // ]
       }
-      // fontSize: {
-      //   heading: [
-      //     '4.8rem',
-      //     {
-      //       lineHeight: '4.8rem',
-      //       letterSpacing: '0rem',
-      //       fontWeight: '700'
-      //     }
-      //   ],
-      //   subtitle: [
-      //     '2.4rem',
-      //     {
-      //       lineHeight: '2.8rem',
-      //       letterSpacing: '0rem',
-      //       fontWeight: '400'
-      //     }
-      //   ]
-      // }
     }
   },
   plugins: []

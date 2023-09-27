@@ -1,15 +1,117 @@
 ---
+import Wave from './Wave.astro'
 import Container from './Container.astro'
+import SectionTitle from './SectionTitle.astro'
 interface Props {
-  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  title: string
-  body: string
-  href: string
+  showWave?: boolean
 }
 
-const { href, title, body } = Astro.props
+const { showWave = false } = Astro.props
+
+const nutiritionItems = [
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/protein.json'
+  },
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/no-sugar.json'
+  },
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/keto-friendly.json'
+  },
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/low-carb.json'
+  },
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/allergy-friendly.json'
+  },
+  {
+    label: 'Shop',
+    url: '/src/data/lottie/no-filler.json'
+  }
+]
 ---
 
-<section class="bg-baby-blue">
-  <Container>Nutrition</Container>
+<section class="relative text-center">
+  {showWave && <Wave color="text-sky-blue" />}
+
+  <div class="relative z-[2] bg-sky-blue py-[132px]">
+    <Container className="max-w-[1126px]">
+      <SectionTitle className="text-[9rem] leading-[8rem] " showLottie={true}>
+        <span class="mx-auto w-full max-w-[991px]"
+          >Nutrition your taste buds will understand.</span
+        >
+      </SectionTitle>
+
+      <div class="flex flex-wrap justify-center">
+        {
+          nutiritionItems.map((item) => (
+            <div class="w-1/2 md:w-1/3 lg:w-1/4">
+              <dotlottie-player
+                src={item.url}
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              />
+            </div>
+          ))
+        }
+
+        <!-- <div>
+          <dotlottie-player
+            src="/src/data/lottie/no-sugar.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay></dotlottie-player>
+        </div>
+
+        <div>
+          <dotlottie-player
+            src="/src/data/lottie/keto-friendly.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay></dotlottie-player>
+        </div>
+
+        <div>
+          <dotlottie-player
+            src="/src/data/lottie/low-carb.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay></dotlottie-player>
+        </div>
+
+        <div>
+          <dotlottie-player
+            src="/src/data/lottie/allergy-friendly.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay></dotlottie-player>
+        </div>
+
+        <div>
+          <dotlottie-player
+            src="/src/data/lottie/no-filler.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay></dotlottie-player>
+        </div> -->
+      </div>
+    </Container>
+  </div>
 </section>

@@ -38,6 +38,12 @@
   font-display: swap;
 }
 
+:root {
+  --color-primary: #d02c2f;
+  --color-bg: #fef5f0;
+  --color-sky-blue: #c9ebf7;
+}
+
 ::selection {
   @apply bg-primary text-white;
 }
