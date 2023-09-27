@@ -21,16 +21,16 @@ const {} = Astro.props
     className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
   >
     <div
-      class="relative z-[3] mx-auto flex w-full max-w-[535px] flex-col text-center lg:mr-0 lg:text-left"
+      class="relative z-[3] mx-auto flex w-full max-w-[535px] flex-col items-center text-center lg:mr-0 lg:items-start lg:text-left"
     >
       <SectionTitle
-        className="mb-5 mx-auto lg:text-[11rem] leading-[1] lg:ml-0 w-[8ch]"
+        className="mb-5 mx-auto sm:text-[8rem] lg:text-[11rem] leading-[1] lg:ml-0 w-[8ch]"
       >
         SNACKING MADE SIMPLE
       </SectionTitle>
 
       <SubTitle
-        className="mb-[30px] lg:w-[42ch] text-[2rem] lg:text-[2.875rem]"
+        className="mb-[30px] text-[2rem] max-xs:w-auto w-[42ch] mx-auto lg:ml-0 md:text-[2.875rem]"
       >
         Tasty meat sticks packed with mouthwatering flavor and only the best
         real ingredients.
@@ -55,8 +55,9 @@ const {} = Astro.props
   }
 
   .hero-img-mobile {
-    @apply max-xs:h-[350px] absolute bottom-0 left-0 block h-[390px] lg:hidden;
+    @apply xs:h-[350px] absolute bottom-0 left-0 block sm:h-[320px] lg:hidden;
     & img {
+      @apply w-[95%];
     }
   }
 </style>
