@@ -1,8 +1,11 @@
 ---
 import AnnouncementBar from './AnnouncementBar.astro'
-import ChevronDown from './ChevronDown.astro'
+import IconChevronDown from './IconChevronDown.astro'
 import ChompsLogo from './ChompsLogo.astro'
 import Container from './Container.astro'
+import IconUser from './IconUser.astro'
+import IconCart from './IconCart.astro'
+import IconHamburger from './IconHamburger.astro'
 
 interface Props {
   showAnnouncementBar?: boolean
@@ -40,57 +43,51 @@ const mainSettingsMenu = [
 ]
 ---
 
-<header class="bg-primary text-white">
+<header class="fixed left-0 top-0 z-[100] w-full bg-primary text-white">
   {
     showAnnouncementBar && (
       <AnnouncementBar text="SUBSCRIBE TO SAVE 10% ON EVERY ORDER! 💰" />
     )
   }
 
-  <nav
-    class:list={[
-      'relative flex min-h-[75px] py-[11px]',
-      '[&_ul]:flex [&_ul]:items-center'
-    ]}
-  >
+  <nav class="relative flex min-h-[75px] py-[11px]">
     <Container className="flex items-center justify-between gap-4">
+      <div class="flex lg:hidden">
+        <button>
+          <IconHamburger />
+        </button>
+      </div>
       <div
-        class="logo absolute left-1/2 top-1/2 w-full max-w-[219px] -translate-x-1/2 -translate-y-1/2 text-center"
+        class="absolute left-1/2 top-1/2 w-full max-w-[219px] -translate-x-1/2 -translate-y-1/2 text-center"
       >
         <a href="/" class="flex justify-center">
           <ChompsLogo />
         </a>
       </div>
 
-      <div class="main-menu">
-        <ul>
-          {
-            mainMenu.map((item) => (
-              <li>
-                {item.subMenu ? (
-                  <button
-                    class="menu-link"
-                    type="button"
-                    aria-label={item.label}
-                  >
-                    {item.label}{' '}
-                    <span>
-                      <ChevronDown />
-                    </span>
-                  </button>
-                ) : (
-                  <a href={item.url} class="menu-link">
-                    {item.label}
-                  </a>
-                )}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      <ul class="main-links">
+        {
+          mainMenu.map((item) => (
+            <li>
+              {item.subMenu ? (
+                <button class="menu-link" type="button" aria-label={item.label}>
+                  {item.label}{' '}
+                  <span>
+                    <IconChevronDown />
+                  </span>
+                </button>
+              ) : (
+                <a href={item.url} class="menu-link">
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
 
       <div class="flex items-center gap-15">
-        <ul>
+        <ul class="main-links">
           {
             mainSettingsMenu.map((item) => (
               <li>
@@ -101,12 +98,21 @@ const mainSettingsMenu = [
             ))
           }
         </ul>
-        <ul class="gap-15">
-          <li>
-            <button>Icon</button>
+        <ul class="gap-15 [&_button]:px-[7.5px]">
+          <li class="flex">
+            <button class="relative">
+              <IconCart />
+
+              <span
+                class="absolute -right-[3px] -top-[10px] flex h-[20px] w-[20px] items-center justify-center rounded-full bg-white text-[10px] leading-[2rem] text-primary"
+                >0</span
+              >
+            </button>
           </li>
           <li>
-            <button>Icon</button>
+            <button>
+              <IconUser />
+            </button>
           </li>
         </ul>
       </div>
@@ -115,7 +121,21 @@ const mainSettingsMenu = [
 </header>
 
 <style>
+  header {
+    & .main-links {
+      @apply hidden lg:flex;
+    }
+    & ul {
+      @apply flex items-center;
+    }
+  }
+  .main-menu {
+    & li:first-of-type .menu-link {
+      @apply pl-0;
+    }
+  }
+
   .menu-link {
-    @apply flex items-center gap-2 px-[15px] py-[7.5px] font-heading text-[2rem];
+    @apply flex items-center gap-3 px-[15px] py-[7.5px] font-heading text-[2rem];
   }
 </style>

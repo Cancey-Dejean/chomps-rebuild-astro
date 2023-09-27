@@ -1,0 +1,15 @@
+---
+import Container from './Container.astro'
+interface Props {
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  title: string
+  body: string
+  href: string
+}
+
+const { href, title, body } = Astro.props
+---
+
+<section class="bg-baby-blue">
+  <Container>Nutrition</Container>
+</section>

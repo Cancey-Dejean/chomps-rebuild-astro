@@ -15,6 +15,14 @@
 }
 
 @font-face {
+  font-family: 'Franklin Gothic Md';
+  src: url('/fonts/ITCFranklinGothicStd-MdCd.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Colby';
   src: url('/fonts/Colby.woff2') format('woff2');
   font-weight: normal;
@@ -38,15 +46,15 @@
 }
 
 html {
-  @apply h-screen scroll-smooth text-[62.5%];
+  @apply scroll-smooth text-[62.5%] leading-[1.6];
 }
 
 body {
-  @apply flex h-full flex-col font-body text-[1.6rem] leading-[1.6] text-black antialiased;
+  @apply flex h-screen flex-col font-body text-[1.6rem] tracking-[0] text-black antialiased;
 }
 
 main {
-  @apply flex-1;
+  @apply h-full;
 }
 
 a {
