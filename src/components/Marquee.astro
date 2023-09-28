@@ -1,0 +1,131 @@
+---
+interface Props {
+  title: string
+  body: string
+  href: string
+}
+
+const { href, title, body } = Astro.props
+
+const logoItems = [
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  },
+  {
+    imgUrl: '/src/images/ELogo.avif'
+  }
+]
+---
+
+<!-- Example from Coding with Robby: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=33s -->
+<section class="logo overflow-hidden bg-primary py-[60px]">
+  <div class="logo-slide">
+    {logoItems.map((logo) => <img src={logo.imgUrl} alt="" />)}
+  </div>
+</section>
+
+<style>
+  .logo {
+    position: relative;
+    display: flex;
+  }
+  .logo::before,
+  .logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .logo::before {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      var(--color-primary) 100%
+    );
+  }
+
+  .logo::after {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      var(--color-primary) 100%
+    );
+  }
+
+  .logo-slide {
+    display: flex;
+
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    animation: slide 35s infinite linear;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  .logo img {
+    height: 50px;
+    margin: 0 70px;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+<script>
+  let copy = document.querySelector('.logo-slide').cloneNode(true)
+  document.querySelector('.logo').appendChild(copy)
+</script>
