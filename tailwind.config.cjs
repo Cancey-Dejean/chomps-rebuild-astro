@@ -34,20 +34,27 @@ module.exports = {
         15: '1.5rem'
       },
       screens: {
-        xs: '374px'
+        xs: '374px',
+        // => @media (max-width: 374px) ** USE FOR EXTRA SMALL SCREENS { ... }
+        sm: '600px',
+        // => @media (min-width: 600px) { ... }
+
+        md: '750px',
+        // => @media (min-width: 750px) { ... }
+
+        lg: '1025px',
+        // => @media (min-width: 1025px) { ... }
+
+        xl: '1376px'
+        // => @media (min-width: 1376px) { ... }
       },
       fontSize: {
-        6: ['6rem'],
-        11: ['11rem'],
-        13: ['13rem']
-        // subtitle: [
-        //   '2.4rem',
-        //   {
-        //     lineHeight: '2.8rem',
-        //     letterSpacing: '0rem',
-        //     fontWeight: '400'
-        //   }
-        // ]
+        3: ['3.6rem', '1'],
+        4: ['4.8rem', '1'],
+        6: ['6rem', '1'],
+        9: ['9rem', '8rem'],
+        11: ['11rem', '1'],
+        13: ['13rem', '1']
       }
     }
   },

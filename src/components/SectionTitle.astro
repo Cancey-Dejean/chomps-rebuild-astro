@@ -13,17 +13,17 @@ const { className = '', as: Element = 'h1', showLottie = false } = Astro.props
 
 <Element
   class:list={twMerge(
-    'relative font-heading text-6 uppercase leading-[1] tracking-[0]',
+    'text-3 lg:text-9 relative mx-auto inline-flex max-w-[initial] font-heading uppercase tracking-[0]',
     className
   )}
 >
-  {showLottie && <LottieHeading className="mt-[-40px] ml-[-28px]" />}
+  {showLottie && <LottieHeading className="ml-[-60px]" />}
 
   <slot />
 
   {
     showLottie && (
-      <LottieHeading className="rotate-[230deg] scale-x-[-1] right-0 mt-[-40px] mr-[-28px]" />
+      <LottieHeading className="rotate-[230deg] scale-x-[-1] right-0 mr-[-60px]" />
     )
   }
 </Element>
