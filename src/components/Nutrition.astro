@@ -43,7 +43,7 @@ const nutiritionItems = [
     <Container className="max-w-[1126px] flex flex-col gap-[58px]">
       <SectionTitle
         as="h2"
-        className="text-3 max-w-[250px] sm:text-3 md:text-4 leading-[1] sm:max-w-full lg:text-[9rem] lg:leading-[8rem] "
+        className="text-3 max-w-[250px] sm:text-3 md:text-4 sm:max-w-full lg:text-6 xl:text-9"
         showLottie={true}
       >
         Nutrition your taste buds <br /> will understand.
@@ -51,7 +51,7 @@ const nutiritionItems = [
       <div class="flex flex-wrap justify-center gap-[30px]">
         {
           nutiritionItems.map((item) => (
-            <div class="w-1/2 md:w-[25%] lg:w-[20%]">
+            <div class="w-[40%] md:w-[25%] lg:w-[20%]">
               <div class="mx-auto max-w-[155px]">
                 <dotlottie-player
                   src={item.url}
@@ -60,9 +60,10 @@ const nutiritionItems = [
                   loop
                   autoplay
                 />
-
-                <h3 class="font-heading uppercase">{item.heading}</h3>
               </div>
+              <h3 class="mt-[15px] font-heading text-1 uppercase sm:text-2">
+                {item.heading}
+              </h3>
             </div>
           ))
         }

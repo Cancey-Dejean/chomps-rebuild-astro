@@ -12,107 +12,133 @@ const logoItems = [
     imgUrl: '/src/images/ELogo.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/forbes-logo.png'
+  },
+  {
+    imgUrl: '/src/images/Business_Insider.avif'
+  },
+  {
+    imgUrl: '/src/images/etntlogo.avif'
+  },
+  {
+    imgUrl: '/src/images/food-network.avif'
+  },
+  {
+    imgUrl: '/src/images/fast-company-logo.avif'
   },
   {
     imgUrl: '/src/images/ELogo.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/forbes-logo.png'
+  },
+  {
+    imgUrl: '/src/images/Business_Insider.avif'
+  },
+  {
+    imgUrl: '/src/images/etntlogo.avif'
+  },
+  {
+    imgUrl: '/src/images/food-network.avif'
+  },
+  {
+    imgUrl: '/src/images/fast-company-logo.avif'
   },
   {
     imgUrl: '/src/images/ELogo.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/forbes-logo.png'
+  },
+  {
+    imgUrl: '/src/images/Business_Insider.avif'
+  },
+  {
+    imgUrl: '/src/images/etntlogo.avif'
+  },
+  {
+    imgUrl: '/src/images/food-network.avif'
+  },
+  {
+    imgUrl: '/src/images/fast-company-logo.avif'
   },
   {
     imgUrl: '/src/images/ELogo.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/forbes-logo.png'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/Business_Insider.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/etntlogo.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/food-network.avif'
   },
   {
-    imgUrl: '/src/images/ELogo.avif'
-  },
-  {
-    imgUrl: '/src/images/ELogo.avif'
-  },
-  {
-    imgUrl: '/src/images/ELogo.avif'
-  },
-  {
-    imgUrl: '/src/images/ELogo.avif'
-  },
-  {
-    imgUrl: '/src/images/ELogo.avif'
+    imgUrl: '/src/images/fast-company-logo.avif'
   }
 ]
 ---
 
 <!-- Example from Coding with Robby: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=33s -->
-<section class="logo overflow-hidden bg-primary py-[60px]">
-  <div class="logo-slide">
-    {logoItems.map((logo) => <img src={logo.imgUrl} alt="" />)}
+<section class="logo">
+  <div class="animate-pause flex animate-marquee flex-nowrap">
+    {
+      logoItems.map((logo) => (
+        <img
+          src={logo.imgUrl}
+          alt=""
+          class="mx-[50px] h-20 w-[150px] object-contain"
+        />
+      ))
+    }
+    {
+      logoItems.map((logo) => (
+        <img
+          src={logo.imgUrl}
+          alt=""
+          class="mx-[50px] h-20 w-[150px] object-contain"
+        />
+      ))
+    }
+    {
+      logoItems.map((logo) => (
+        <img
+          src={logo.imgUrl}
+          alt=""
+          class="mx-[50px] h-20 w-[150px] object-contain"
+        />
+      ))
+    }
   </div>
 </section>
 
 <style>
   .logo {
-    position: relative;
-    display: flex;
+    @apply relative flex overflow-hidden bg-primary py-[20px];
   }
+
   .logo::before,
   .logo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    z-index: 2;
+    @apply absolute top-0 z-[2] h-full w-[250px] content-[''];
   }
 
   .logo::before {
-    left: 0;
-    background: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0) 0%,
-      var(--color-primary) 100%
-    );
+    @apply left-0 bg-marquee-gradient-left;
   }
 
   .logo::after {
-    right: 0;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0) 0%,
-      var(--color-primary) 100%
-    );
+    @apply right-0 bg-marquee-gradient-right;
   }
 
-  .logo-slide {
-    display: flex;
-
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    animation: slide 35s infinite linear;
-
-    &:hover {
-      animation-play-state: paused;
-    }
-  }
   .logo img {
-    height: 50px;
-    margin: 0 70px;
+    /* max-width: 150px;
+    height: 80px; */
+    /* object-fit: contain; */
+    /* margin: 0 50px; */
   }
 
   @keyframes slide {
@@ -124,8 +150,3 @@ const logoItems = [
     }
   }
 </style>
-
-<script>
-  let copy = document.querySelector('.logo-slide').cloneNode(true)
-  document.querySelector('.logo').appendChild(copy)
-</script>

@@ -12,7 +12,8 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)',
         bg: 'var(--color-bg)',
-        'sky-blue': 'var(--color-sky-blue)'
+        'sky-blue': 'var(--color-sky-blue)',
+        'gradient-white': 'rgba(var(--color-white) 0%)'
 
         // primary: {
         //   50: '#F2F2F2',
@@ -33,6 +34,15 @@ module.exports = {
       gap: {
         15: '1.5rem'
       },
+      animation: {
+        marquee: 'slide 100s infinite linear'
+      },
+      backgroundImage: {
+        'marquee-gradient-left':
+          'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, var(--color-primary) 100%)',
+        'marquee-gradient-right':
+          'linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--color-primary) 100%)'
+      },
       screens: {
         xs: '374px',
         // => @media (max-width: 374px) ** USE FOR EXTRA SMALL SCREENS { ... }
@@ -49,6 +59,8 @@ module.exports = {
         // => @media (min-width: 1376px) { ... }
       },
       fontSize: {
+        1: ['1.9rem', '1'],
+        2: ['2.4rem', '1'],
         3: ['3.6rem', '1'],
         4: ['4.8rem', '1'],
         6: ['6rem', '1'],
