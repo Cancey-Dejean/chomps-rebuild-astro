@@ -5,6 +5,7 @@ import Button from './Button.astro'
 import Container from './Container.astro'
 import SectionTitle from './SectionTitle.astro'
 import SubTitle from './SubTitle.astro'
+import IconArrowSlide from './IconArrowSlide.astro'
 
 interface Props {
   title?: string
@@ -12,11 +13,67 @@ interface Props {
   href?: string
 }
 
-const slideImages = [{ imgUrl: SlideImg, title: 'Original Beef', link: '/' }]
+const slideImages = [
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Taco_Beef.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Taco_Beef.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Taco_Beef.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Taco_Beef.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Taco_Beef.webp',
+    title: 'Original Beef',
+    link: '/'
+  },
+  {
+    imgUrl: '/src/images/scroll-Original_Beef_Scroll.webp',
+    title: 'Original Beef',
+    link: '/'
+  }
+]
 ---
 
 <section class="overflow-hidden pt-[115px] text-center">
-  <Container className="mb-[40px]">
+  <Container className="mb-[100px]">
     <SectionTitle
       as="h2"
       className="text-[3.6rem] md:text-[4.8rem] lg:text-[6rem] leading-[1] mb-10"
@@ -34,14 +91,51 @@ const slideImages = [{ imgUrl: SlideImg, title: 'Original Beef', link: '/' }]
     <Button href="/" label="Start Snackin'" className="min-w-[215px]" />
   </Container>
 
-  <div>
+  <div class="relative flex flex-nowrap justify-center">
     {
       slideImages.map((image) => (
-        <a href="/" title="Original Beef">
-          <span class="sr-only" />
-          <Image src={SlideImg} alt="" />
+        <a
+          href={image.link}
+          title={image.title}
+          class="group contents w-[216px] pt-12"
+        >
+          <span class="sr-only">{image.title}</span>
+          <Image
+            src={image.imgUrl}
+            alt={image.title}
+            class="w-[215px] transition-all duration-[.3s] ease-in-out group-hover:scale-[1.2]"
+            width={216}
+            height={497}
+          />
         </a>
       ))
     }
+
+    <Container
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-between gap-3 "
+    >
+      <button type="button" class="slide-arrow prev">
+        <IconArrowSlide />
+      </button>
+
+      <ul><li>O</li></ul>
+
+      <button type="button" class="slide-arrow next -scale-[1]">
+        <IconArrowSlide />
+      </button>
+    </Container>
   </div>
 </section>
+
+<style>
+  .slide-arrow {
+    @apply relative flex h-[55px] w-[55px] items-center justify-center rounded-full border-2 border-primary bg-white;
+  }
+
+  @scope (.slide-arrow) {
+    svg {
+      fill: blue;
+      height: 200px;
+    }
+  }
+</style>

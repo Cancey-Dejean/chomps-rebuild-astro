@@ -1,11 +1,8 @@
 ---
-interface Props {
-  title: string
-  body: string
-  href: string
-}
+import { twMerge } from 'tailwind-merge'
+interface Props {}
 
-const { href, title, body } = Astro.props
+const {} = Astro.props
 
 const logoItems = [
   {
@@ -83,8 +80,14 @@ const logoItems = [
 ]
 ---
 
-<!-- Example from Coding with Robby: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=33s -->
-<section class="logo">
+<section
+  class={twMerge(
+    'logo',
+    'relative flex overflow-hidden bg-primary py-[20px]',
+    'before:left-0 before:bg-marquee-gradient-left',
+    'after:right-0 after:bg-marquee-gradient-right'
+  )}
+>
   <div class="animate-pause flex animate-marquee flex-nowrap">
     {
       logoItems.map((logo) => (
@@ -117,28 +120,9 @@ const logoItems = [
 </section>
 
 <style>
-  .logo {
-    @apply relative flex overflow-hidden bg-primary py-[20px];
-  }
-
   .logo::before,
   .logo::after {
     @apply absolute top-0 z-[2] h-full w-[250px] content-[''];
-  }
-
-  .logo::before {
-    @apply left-0 bg-marquee-gradient-left;
-  }
-
-  .logo::after {
-    @apply right-0 bg-marquee-gradient-right;
-  }
-
-  .logo img {
-    /* max-width: 150px;
-    height: 80px; */
-    /* object-fit: contain; */
-    /* margin: 0 50px; */
   }
 
   @keyframes slide {

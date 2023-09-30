@@ -8,9 +8,9 @@ interface Props {
 const { className = '', color = 'text-black' } = Astro.props
 ---
 
-<div class={twMerge('relative top-[-30px] h-px', className)}>
+<div class={twMerge('relative w-full', className)}>
   <svg
-    class={twMerge('w-full', color)}
+    class={twMerge('min-h-[40px] w-full h-auto', color)}
     viewBox="0 0 1440 138"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +18,5 @@ const { className = '', color = 'text-black' } = Astro.props
     <path
       d="M0 18.9933C289.026 -30.9252 802.832 35.2142 1440 18.9933V137.278H0V18.9933Z"
       fill="currentColor"></path>
-    <!-- <path
-      d="M0 18.9933C289.026 -30.9252 802.832 35.2142 1440 18.9933V137.278H0V18.9933Z"
-      fill="#c9ebf7"></path> -->
   </svg>
 </div>

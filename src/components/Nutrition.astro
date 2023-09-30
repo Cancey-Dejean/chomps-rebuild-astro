@@ -2,6 +2,7 @@
 import Wave from './Wave.astro'
 import Container from './Container.astro'
 import SectionTitle from './SectionTitle.astro'
+
 interface Props {
   showWave?: boolean
 }
@@ -36,9 +37,10 @@ const nutiritionItems = [
 ]
 ---
 
-<section class="relative overflow-hidden text-center">
-  {showWave && <Wave color="text-sky-blue" />}
-
+<section class="relative text-center">
+  <div class="absolute -top-[30px] left-0 w-full">
+    <Wave color="text-sky-blue" />
+  </div>
   <div class="relative z-[2] bg-sky-blue py-[132px]">
     <Container className="max-w-[1126px] flex flex-col gap-[58px]">
       <SectionTitle
