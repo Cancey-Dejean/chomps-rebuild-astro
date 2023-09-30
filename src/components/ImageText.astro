@@ -14,33 +14,53 @@ interface Props {
 const { href, title, body } = Astro.props
 ---
 
-<section class="px-5 py-[60px] lg:px-[60px]">
+<style>
+  .image-content__arrow {
+    /* display: inline-block; */
+    /* position: absolute;
+    top: 0; */
+    /* right: -40px;
+    width: 80px; */
+    transform: scale(-1, -1) rotate(90deg);
+  }
+</style>
+
+<section class="overflow-hidden px-5 py-[60px] lg:px-[60px]">
   <Container
-    className="flex flex-col md:flex-row items-start lg:items-center gap-[35px] lg:gap-[85px] max-w-[1271px] px-0"
+    className="flex flex-col md:flex-row lg:items-center gap-[35px] lg:gap-[85px] max-w-[1271px] px-0"
   >
     <div class="flex-1">
-      <Image src={FuelImage} alt="" />
+      <Image src={FuelImage} alt="" width={620} height={750} class="w-full" />
     </div>
-    <div class="flex-1">
-      <div class="flex max-w-[500px] flex-col items-start">
-        <div class="-ml-[72px] h-[180px] w-[180px] rotate-0 scale-[-1]">
+
+    <div class="relative flex-1">
+      <div
+        class="mx-auto flex max-w-[500px] flex-col items-center md:ml-0 md:items-start"
+      >
+        <div
+          class="absolute right-0 top-0 -mr-8 inline-block h-24 w-24 rotate-90 scale-[-1] sm:h-36 sm:w-36 md:relative md:-ml-[72px] md:mr-0 md:block md:h-[180px] md:w-[180px] md:rotate-0"
+        >
           <dotlottie-player
             src="/src/data/lottie/lottie-arrow.json"
             background="transparent"
             speed="1"
+            class="h-full w-full"
             autoplay></dotlottie-player>
         </div>
-        <SectionTitle as="h2" className="lg:text-4 mb-[26px]">
-          Fuel For You and All You Do
-        </SectionTitle>
 
-        <SubTitle as="p">
-          Give your inner nutritionist the day off. Our sticks are packed with
-          flavor and free of the icky stuff. Keto friendly, Paleo certified, and
-          gluten free!
-        </SubTitle>
+        <div class="max-w-[365px] text-center sm:max-w-full lg:text-left">
+          <SectionTitle as="h2" className="text-3 lg:text-4 mb-[26px]">
+            Fuel For You and All You Do
+          </SectionTitle>
 
-        <Button href="/" label="Shop All" className="mt-[59px] min-w-[300px]" />
+          <SubTitle as="p" className="!text-[2rem] md:!text-[2.4rem]">
+            Give your inner nutritionist the day off. Our sticks are packed with
+            flavor and free of the icky stuff. Keto friendly, Paleo certified,
+            and gluten free!
+          </SubTitle>
+        </div>
+
+        <Button href="/" label="Shop All" className="mt-[40px] min-w-[300px]" />
       </div>
     </div>
   </Container>

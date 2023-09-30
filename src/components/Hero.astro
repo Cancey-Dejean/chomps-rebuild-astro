@@ -4,7 +4,6 @@ import Container from './Container.astro'
 import heroImg from '../images/hero.webp'
 import heroImgMobile from '../images/hero-mobile.webp'
 import Button from './Button.astro'
-import SectionTitle from './SectionTitle.astro'
 import SubTitle from './SubTitle.astro'
 
 interface Props {}
@@ -23,14 +22,12 @@ const {} = Astro.props
     <div
       class="relative z-[3] mx-auto flex w-full max-w-[535px] flex-col items-center text-center lg:mr-0 lg:items-start lg:text-left"
     >
-      <SectionTitle
-        className="mb-5 mx-auto sm:text-8 lg:text-11 lg:ml-0 w-[8ch]"
-      >
-        SNACKING MADE SIMPLE
-      </SectionTitle>
+      <h1 class="md:text-8 font-heading text-6 lg:text-11">
+        SNACKING <br /> MADE SIMPLE
+      </h1>
 
       <SubTitle
-        className="mb-[30px] text-[2rem] max-xs:w-auto w-[42ch] mx-auto lg:ml-0 md:text-[2.875rem]"
+        className="mb-[20px] sm:mb-[30px] !text-[2rem] max-xs:w-auto w-[42ch] mx-auto lg:ml-0 md:!text-[2.875rem] leading-[1.5]"
       >
         Tasty meat sticks packed with mouthwatering flavor and only the best
         real ingredients.

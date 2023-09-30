@@ -8,11 +8,6 @@ interface Props {
 const { className = '', as: Element = 'p' } = Astro.props
 ---
 
-<Element
-  class:list={twMerge(
-    'font-secondary text-[2.4rem] leading-[2.8rem]',
-    className
-  )}
->
+<Element class:list={twMerge('font-secondary text-2', className)}>
   <slot />
 </Element>
