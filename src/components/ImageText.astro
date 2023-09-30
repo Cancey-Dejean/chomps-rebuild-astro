@@ -5,6 +5,7 @@ import Container from './Container.astro'
 import SectionTitle from './SectionTitle.astro'
 import SubTitle from './SubTitle.astro'
 import Button from './Button.astro'
+
 interface Props {
   title: string
   body: string
@@ -25,7 +26,7 @@ const { href, title, body } = Astro.props
   }
 </style>
 
-<section class="overflow-hidden px-5 py-[60px] lg:px-[60px]">
+<section class="overflow-hidden px-[30px] pt-[60px] lg:px-[60px]">
   <Container
     className="flex flex-col md:flex-row lg:items-center gap-[35px] lg:gap-[85px] max-w-[1271px] px-0"
   >
@@ -38,7 +39,7 @@ const { href, title, body } = Astro.props
         class="mx-auto flex max-w-[500px] flex-col items-center md:ml-0 md:items-start"
       >
         <div
-          class="absolute right-0 top-0 -mr-8 inline-block h-24 w-24 rotate-90 scale-[-1] sm:h-36 sm:w-36 md:relative md:-ml-[72px] md:mr-0 md:block md:h-[180px] md:w-[180px] md:rotate-0"
+          class="absolute right-0 top-0 -mr-14 inline-block h-24 w-24 rotate-90 scale-[-1] sm:h-36 sm:w-36 md:relative md:-ml-[72px] md:mr-0 md:block md:h-[180px] md:w-[180px] md:rotate-0"
         >
           <dotlottie-player
             src="/src/data/lottie/lottie-arrow.json"
@@ -48,12 +49,14 @@ const { href, title, body } = Astro.props
             autoplay></dotlottie-player>
         </div>
 
-        <div class="max-w-[365px] text-center sm:max-w-full lg:text-left">
-          <SectionTitle as="h2" className="text-3 lg:text-4 mb-[26px]">
+        <div class="text-center sm:max-w-full md:text-left">
+          <h2
+            class="mb-[26px] font-heading text-[3.6rem] leading-[1] md:text-[4.8rem]"
+          >
             Fuel For You and All You Do
-          </SectionTitle>
+          </h2>
 
-          <SubTitle as="p" className="!text-[2rem] md:!text-[2.4rem]">
+          <SubTitle as="p" className="">
             Give your inner nutritionist the day off. Our sticks are packed with
             flavor and free of the icky stuff. Keto friendly, Paleo certified,
             and gluten free!

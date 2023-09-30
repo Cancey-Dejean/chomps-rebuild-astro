@@ -5,10 +5,16 @@ import LottieHeading from './Lottie/LottieHeading.astro'
 interface Props {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   className?: string
-  showLottie?: boolean
+  showLeftLottie?: boolean
+  showRightLottie?: boolean
 }
 
-const { className = '', as: Element = 'h1', showLottie = false } = Astro.props
+const {
+  className = '',
+  as: Element = 'h1',
+  showLeftLottie = false,
+  showRightLottie = false
+} = Astro.props
 ---
 
 <Element
@@ -17,12 +23,12 @@ const { className = '', as: Element = 'h1', showLottie = false } = Astro.props
     className
   )}
 >
-  {showLottie && <LottieHeading className="ml-[-60px]" />}
+  {showLeftLottie && <LottieHeading className="ml-[-60px]" />}
 
   <slot />
 
   {
-    showLottie && (
+    showRightLottie && (
       <LottieHeading className="rotate-[230deg] scale-x-[-1] right-0 mr-[-60px]" />
     )
   }

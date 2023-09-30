@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets'
+import SlideImg from '../images/scroll-Original_Beef_Scroll.webp'
+import Button from './Button.astro'
+import Container from './Container.astro'
+import SectionTitle from './SectionTitle.astro'
+import SubTitle from './SubTitle.astro'
+
+interface Props {
+  title?: string
+  imgUrl?: string
+  href?: string
+}
+
+const slideImages = [{ imgUrl: SlideImg, title: 'Original Beef', link: '/' }]
+---
+
+<section class="overflow-hidden pt-[115px] text-center">
+  <Container className="mb-[40px]">
+    <SectionTitle
+      as="h2"
+      className="text-[3.6rem] md:text-[4.8rem] lg:text-[6rem] leading-[1] mb-10"
+      showRightLottie={true}
+    >
+      These Snacks <br class="block sm:hidden" /> Stack Up
+    </SectionTitle>
+
+    <SubTitle className="max-w-[700px] mx-auto mb-8">
+      Who said snacks need to be complicated? Stick to the basics: zero sugar
+      and plenty of protein, in a range of Chompable flavors. Nutrition your
+      taste buds will understand.
+    </SubTitle>
+
+    <Button href="/" label="Start Snackin'" className="min-w-[215px]" />
+  </Container>
+
+  <div>
+    {
+      slideImages.map((image) => (
+        <a href="/" title="Original Beef">
+          <span class="sr-only" />
+          <Image src={SlideImg} alt="" />
+        </a>
+      ))
+    }
+  </div>
+</section>
